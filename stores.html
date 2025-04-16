@@ -80,27 +80,29 @@
       renderStores();
     });
 
-    function renderStores() {
-      storeList.innerHTML = '';
-      stores.forEach((store, index) => {
-        const row = document.createElement('tr');
-        row.classList.add(store.active ? '' : 'table-secondary');
-        row.innerHTML = `
-          <td>${store.name}</td>
-          <td>${store.location}</td>
-          <td>
-            <span class="badge ${store.active ? 'bg-success' : 'bg-danger'}">
-              ${store.active ? 'Active' : 'Inactive'}
-            </span>
-          </td>
-          <td>
-            <button class="btn btn-sm btn-warning me-2" onclick="editStore(${index})">Edit</button>
-            <button class="btn btn-sm btn-danger" onclick="deleteStore(${index})">Delete</button>
-          </td>
-        `;
-        storeList.appendChild(row);
-      });
+function renderStores() {
+  storeList.innerHTML = '';
+  stores.forEach((store, index) => {
+    const row = document.createElement('tr');
+    if (!store.active) {
+      row.classList.add('table-secondary');
     }
+    row.innerHTML = `
+      <td>${store.name}</td>
+      <td>${store.location}</td>
+      <td>
+        <span class="badge ${store.active ? 'bg-success' : 'bg-danger'}">
+          ${store.active ? 'Active' : 'Inactive'}
+        </span>
+      </td>
+      <td>
+        <button class="btn btn-sm btn-warning me-2" onclick="editStore(${index})">Edit</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteStore(${index})">Delete</button>
+      </td>
+    `;
+    storeList.appendChild(row);
+  });
+}
 
     function editStore(index) {
       const store = stores[index];
