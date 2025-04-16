@@ -53,6 +53,10 @@
     </table>
   </div>
 
+  <footer class="text-center mt-5">
+    <button class="btn btn-danger" onclick="triggerExternalPartnerError()">External Partner</button>
+  </footer>
+
   <script>
     let products = [];
     let editingIndex = null;
@@ -118,6 +122,9 @@
     function resetForm() {
       form.reset();
       editingIndex = null;
+    }
+     function triggerExternalPartnerError() {
+      throw new Error("External Partner Integration Failed");
     }
   </script>
 
