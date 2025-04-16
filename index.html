@@ -95,6 +95,7 @@
             <button class="btn btn-sm btn-danger me-2" onclick="deleteProduct(${index})">Delete</button>
             <button class="btn btn-sm btn-outline-primary me-2" onclick="dummyAction('ship')">📦 Ship</button>
             <button class="btn btn-sm btn-outline-info" onclick="dummyAction('report')">📊 Report</button>
+            <button class="btn btn-warning mt-3" disabled>💰 Buy More Stock</button>
           </td>
         `;
         productList.appendChild(row);
@@ -127,6 +128,5 @@
       throw new Error("External Partner Integration Failed");
     }
   </script>
-
 </body>
 </html>
